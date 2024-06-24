@@ -8,11 +8,11 @@
 > export $AWS_DEFAULT_REGION=REGION_NAME  
 
 **Step 1.** Clone the git repository  
-`git clone https://gitlab.aws.dev/atulac/iot-things-with-terraform.git && cd iot-things-with-terraform/`
+`git clone https://github.com/chaudhariatul/Terraform-with-AWS-IoT-Things.git && cd Terraform-with-AWS-IoT-Things/`
 
 
 ```
-Cloning into 'iot-things-with-terraform'...
+Cloning into 'Terraform-with-AWS-IoT-Things'...
 remote: Enumerating objects: 13, done.
 remote: Counting objects: 100% (13/13), done.
 remote: Compressing objects: 100% (13/13), done.
@@ -81,7 +81,7 @@ data.http.AmazonRootCA1: Read complete after 1s [id=https://www.amazontrust.com/
 data.aws_iot_endpoint.thing_mqtt: Reading...
 data.aws_iam_policy_document.aws_iot_thing_policy: Reading...
 data.aws_iam_policy_document.aws_iot_thing_policy: Read complete after 0s [id=1876646234]
-data.aws_iot_endpoint.thing_mqtt: Read complete after 1s [id=afsbqykxyz777.iot.us-west-1.amazonaws.com]
+data.aws_iot_endpoint.thing_mqtt: Read complete after 1s [id=aaaabbbbcccc.iot.us-west-1.amazonaws.com]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
@@ -209,7 +209,7 @@ Changes to Outputs:
         rqXRfboQnoZsG4q5WTP468SQvvG5
         -----END CERTIFICATE-----
     EOT
-  + iot_endpoint           = "afsbqykxyz777.iot.us-west-1.amazonaws.com"
+  + iot_endpoint           = "aaaabbbbcccc.iot.us-west-1.amazonaws.com"
   + thing_arn              = [
       + (known after apply),
       + (known after apply),
@@ -269,7 +269,7 @@ rqXRfboQnoZsG4q5WTP468SQvvG5
 -----END CERTIFICATE-----
 
 EOT
-iot_endpoint = "afsbqykxyz777.iot.us-west-1.amazonaws.com"
+iot_endpoint = "aaaabbbbcccc.iot.us-west-1.amazonaws.com"
 thing_arn = [
   "arn:aws:iot:us-west-1:123456789012:thing/CG_Thing01",
   "arn:aws:iot:us-west-1:123456789012:thing/CG_Thing02",
@@ -290,7 +290,7 @@ thing_pvtkey = <sensitive>
 `terraform output -raw iot_endpoint`
 
 ```
-afsbqykxyz777.iot.us-west-1.amazonaws.com
+aaaabbbbcccc.iot.us-west-1.amazonaws.com
 ```  
 
 `terraform output -raw AmazonRootCA1_response`  
@@ -381,7 +381,7 @@ EQUCWedjK5BNE7877u0M7b6w78rSheIlgvMa6tsssvIGAVyZk9VyqCz/SibVSu0m
     data.aws_iot_endpoint.thing_mqtt: Reading...
     data.aws_iam_policy_document.aws_iot_thing_policy: Reading...
     data.aws_iam_policy_document.aws_iot_thing_policy: Read complete after 0s [id=305099920]
-    data.aws_iot_endpoint.thing_mqtt: Read complete after 1s [id=afsbqykxyz777.iot.us-west-1.amazonaws.com]
+    data.aws_iot_endpoint.thing_mqtt: Read complete after 1s [id=aaaabbbbcccc.iot.us-west-1.amazonaws.com]
 
     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
       + create
@@ -477,7 +477,7 @@ EQUCWedjK5BNE7877u0M7b6w78rSheIlgvMa6tsssvIGAVyZk9VyqCz/SibVSu0m
             rqXRfboQnoZsG4q5WTP468SQvvG5
             -----END CERTIFICATE-----
         EOT
-      + iot_endpoint           = "afsbqykxyz777.iot.us-west-1.amazonaws.com"
+      + iot_endpoint           = "aaaabbbbcccc.iot.us-west-1.amazonaws.com"
       + thing_arn              = (known after apply)
       + thing_cert             = (sensitive value)
       + thing_cert_pubkey      = (sensitive value)
@@ -507,24 +507,4 @@ total 168
 -rw-r--r--  1 atulac  staff   7.9K Sep 10 20:51 tfplan.binary
 -rw-r--r--  1 atulac  staff    19K Sep 10 20:51 tfplan.json
 -rw-r--r--  1 atulac  staff   369B Sep 10 20:35 variables.tf
-```
-
-
-**Step 4.** `checkov -f tfplan.json`
-
-```
-[ kubernetes framework ]: 100%|████████████████████|[1/1], Current File Scanned=tfplan.json
-[ bitbucket_configuration framework ]: 100%|████████████████████|[1/1], Current File Scanned=../tfplan.json
-[ gitlab_configuration framework ]: 100%|████████████████████|[1/1], Current File Scanned=../tfplan.json
-[ github_configuration framework ]: 100%|████████████████████|[1/1], Current File Scanned=../tfplan.json
-[ secrets framework ]: 100%|████████████████████|[1/1], Current File Scanned=tfplan.json
-
-       _               _              
-   ___| |__   ___  ___| | _______   __
-  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
- | (__| | | |  __/ (__|   < (_) \ V / 
-  \___|_| |_|\___|\___|_|\_\___/ \_/  
-                                      
-By bridgecrew.io | version: 2.1.201 
-
 ```
